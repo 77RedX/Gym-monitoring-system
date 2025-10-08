@@ -5,7 +5,7 @@ from datetime import timedelta, datetime
 # --- Configuration ---
 N_ENTRIES = 500  # Total number of gym visits to simulate
 N_MEMBERS = 50   # Number of unique, anonymized users
-START_DATE = datetime(2025, 10, 1) # Start date for the 3-week simulation
+START_DATE = datetime(2025, 9, 1) # Start date for the 3-week simulation
 FILE_NAME = 'synthetic_gym_data.csv'
 
 def generate_gym_data(n_entries, n_members, start_date):
@@ -29,12 +29,12 @@ def generate_gym_data(n_entries, n_members, start_date):
     # --- 2. Generate Check-In/Out Timestamps (Biased towards Peak Hours) ---
     
     # Define time segments and their likelihoods (weights)
-    peak_hours = list(range(17, 21))  # 5 PM to 8 PM (highest weight)
-    mid_hours = list(range(6, 11)) + list(range(15, 17)) + list(range(21, 23)) # Morning, pre-peak, late (medium weight)
-    off_hours = list(range(0, 6)) + list(range(11, 15)) + list(list(range(23, 24))) # Overnight, mid-day lull (lowest weight)
+    peak_hours = list(range(17, 19))  # 5 PM to 9 PM (highest weight)
+    mid_hours = list(range(6, 7)) # Morning, pre-peak, late (medium weight)
+    #off_hours = list(range(0, 6)) + list(range(11, 15)) + list(list(range(23, 24))) # Overnight, mid-day lull (lowest weight)
 
     # Weight the hours: Peak (3x), Mid (2x), Off (1x)
-    hours = peak_hours * 3 + mid_hours * 2 + off_hours * 1
+    hours = peak_hours * 5 + mid_hours * 2
     
     # Generate random days (0 to 20), sampled hours, and minutes
     days = np.random.randint(0, 21, n_entries)
@@ -62,10 +62,8 @@ def generate_gym_data(n_entries, n_members, start_date):
         durations_min = durations_min[:n_entries] 
         
     np.random.shuffle(durations_min) 
-
     df['Duration_Minutes'] = durations_min
     df['Check_Out'] = df.apply(lambda row: row['Check_In'] + timedelta(minutes=int(row['Duration_Minutes'])), axis=1)
-
     # --- 4. Restructure Columns as Requested (Date and Time Separation) ---
     df['Date'] = df['Check_In'].dt.date
     df['Check_In_Time'] = df['Check_In'].dt.time
