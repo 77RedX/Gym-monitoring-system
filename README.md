@@ -39,7 +39,7 @@ The goal is to enable gyms to:
 ##  Tech Stack
 
 - **Language:** Python  
-- **Libraries:** Prophet, Pandas, Matplotlib, Seaborn, NumPy  
+- **Libraries:** Prophet, Pandas, Matplotlib, Seaborn, NumPy, scikit-learn  
 - **Environment:** Jupyter Notebook / VS Code  
 - **Version Control:** Git & GitHub  
 
