@@ -1,4 +1,4 @@
-#  Gym Footfall Predictor
+#  Gym Usage Monitoring System
 
 A machine learning project that predicts daily gym footfall and user activity patterns using **Facebook Prophet**.  
 This project helps gym owners analyze trends, optimize resources, and plan better by forecasting future visits.
