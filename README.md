@@ -11,11 +11,6 @@ This project helps gym owners analyze trends, optimize resources, and plan bette
 - [Tech Stack](#tech-stack)
 - [Dataset](#dataset)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -83,10 +78,12 @@ Example:
    git clone https://github.com/yourusername/gym-footfall-predictor.git
    cd gym-footfall-predictor
 2. **Create a Virtual Environment**
+   ```bash
    python -m venv venv
    source venv/bin/activate      # for Linux/macOS
    venv\Scripts\activate         # for Windows
 3. **Install required dependencies**
+   ```bash
    pip install -r requirements.txt
 
 Then just run the jupyter notebook (.ipynb file)
