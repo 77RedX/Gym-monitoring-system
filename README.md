@@ -54,7 +54,9 @@ The goal is to enable gyms to:
 
 The dataset contains:
 - `date` — date of record  
-- `visits` — number of gym visits on that day  
+- `duration` — time duration of workout  
+- `workout type` — cardio, strength, calisthenics
+and more..  
 
 Example:
 
@@ -70,7 +72,7 @@ Example:
 | 1037     | 2025-09-01 | 17:37:00       | 18:52:00       | 75               | Monday       | Cardio        |
 
 
-> You can replace this dataset with your own gym attendance data.
+> You can replace this dataset with your own gym attendance data. Just change the synthetic_gym_data.csv file.
 
 ---
 
@@ -80,3 +82,11 @@ Example:
    ```bash
    git clone https://github.com/yourusername/gym-footfall-predictor.git
    cd gym-footfall-predictor
+2. **Create a Virtual Environment**
+   python -m venv venv
+   source venv/bin/activate      # for Linux/macOS
+   venv\Scripts\activate         # for Windows
+3. **Install required dependencies**
+   pip install -r requirements.txt
+
+Then just run the jupyter notebook (.ipynb file)
